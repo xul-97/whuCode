@@ -1,0 +1,72 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>武汉大学通行凭证</title>
+
+<body 
+>
+<img id="bg" src="./lsh_naner.jpg">
+
+
+ <script language="javascript">
+
+     var t = null;
+
+    t = setTimeout(time,1000);//开始执行
+
+    function time()
+
+    {
+
+       clearTimeout(t);//清除定时器
+
+       dt = new Date();
+
+var y=dt.getYear()+1900;
+
+var mm=dt.getMonth()+1;
+
+var d=dt.getDate();
+
+var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+
+var day=dt.getDay();
+
+        var h=dt.getHours();
+
+        var m=dt.getMinutes();
+
+        var s=dt.getSeconds();
+
+if(mm<10){mm="0"+mm;}
+if(d<10){d="0"+d;}
+if(h<10){h="0"+h;}
+
+if(m<10){m="0"+m;}
+
+if(s<10){s="0"+s;}
+
+        document.getElementById("timeShow").innerHTML =  mm+"-"+d+"";
+        document.getElementById("timeBehind").innerHTML =  h+":"+m+":"+s+".27";
+
+       // t = setTimeout(time,1000); //设定定时器，循环执行           
+
+    }
+
+  </script>
+
+  <style>
+
+    .time1{position: absolute; top: 605px; left: 250px; width:50%; height:50px; background:rgba(255,255,255, 0); line-height:100px; text-align:left; font-family: Microsoft YaHei; font-size: 53px;color: rgb(255,255,255)}
+    .time2{position: absolute; top: 605px; left: 435px; width:50%; height:50px; background:rgba(255,255,255, 0); line-height:100px; text-align:left; font-family: Microsoft YaHei; font-size: 53px;color: rgb(255,255,255)}
+    
+  </style>
+
+  <div id="timeShow" class="time1"></div>
+  <div id="timeBehind" class="time2"></div>
+
+</body>
+</html>
+
