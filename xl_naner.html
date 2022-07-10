@@ -12,15 +12,15 @@
 
  <script language="javascript">
 
-     var t = null;
+//      var t = null;
 
-    t = setTimeout(time,1000);//开始执行
+    var t = self.setInterval("time()",10);//开始执行
 
     function time()
 
     {
 
-       clearTimeout(t);//清除定时器
+//        clearTimeout(t);//清除定时器
 
        dt = new Date();
 
@@ -39,6 +39,8 @@ var day=dt.getDay();
         var m=dt.getMinutes();
 
         var s=dt.getSeconds();
+     
+        var ms=parseInt(dt.getMilliseconds() / 10);
 
 if(mm<10){mm="0"+mm;}
 if(d<10){d="0"+d;}
@@ -49,7 +51,7 @@ if(m<10){m="0"+m;}
 if(s<10){s="0"+s;}
 
         document.getElementById("timeShow").innerHTML =  mm+"-"+d+"";
-        document.getElementById("timeBehind").innerHTML =  h+":"+m+":"+s+".27";
+        document.getElementById("timeBehind").innerHTML =  h+":"+m+":"+s+"."+ms;
 
        // t = setTimeout(time,1000); //设定定时器，循环执行           
 
