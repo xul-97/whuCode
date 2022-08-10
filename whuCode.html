@@ -1,0 +1,92 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>武汉大学通行凭证</title>
+
+<body 
+>
+<img id="bg" src="./background.jpg">
+
+ <style>
+
+    .time1{position: absolute; top: 735px; left: 320px; width:50%; height:50px; background:rgba(255,255,255, 0); line-height:100px; text-align:left; font-family: Microsoft YaHei; font-size: 60px;color: rgb(255,255,255)}
+    .time2{position: absolute; top: 735px; left: 550px; width:50%; height:50px; background:rgba(255,255,255, 0); line-height:100px; text-align:left; font-family: Microsoft YaHei; font-size: 60px;color: rgb(255,255,255)}
+    
+  </style>
+
+  <div id="timeShow" class="time1"></div>
+  <div id="timeBehind" class="time2"></div>
+  <div id="siteText" style="position: absolute; top:899px; left:238px; width:800px; height:50px; font-size: 41px; color: rgb(126,126,126)" ></div>
+  <div id="nameText" style="position: absolute; top:995px; left:237px; width:800px; height:50px; font-size: 41px; color: rgb(126,126,126)"></div>
+  <div id="schoolText" style="position: absolute; top:1190px; left:237px; width:1000px; height:50px; font-size: 41px; color: rgb(126,126,126)"></div>
+
+  <div id="identifyText" style="position: absolute; top:1093px; left:237px; width:800px; height:50px; font-size: 41px; color: rgb(126,126,126)">人员类别： 正常研究生</div>
+  <div id="IDCardText" style="position: absolute; top:1287px; left:237px; width:1000px; height:50px; font-size: 41px; color: rgb(126,126,126)">证件类型： 身份证</div>
+
+
+<script src="jquery-3.3.1.min.js"></script>
+<script src="jquery.params.js"></script>
+<script language="javascript">
+    var site = $.query.get("site");
+    var name = $.query.get("name");
+    var school = $.query.get("school");
+
+    document.getElementById("siteText").innerHTML = "通行地点：  "+site;
+    document.getElementById("nameText").innerHTML = "本人姓名：  "+name;
+    document.getElementById("schoolText").innerHTML = "单位名称：  "+school;
+</script>
+
+
+ <script language="javascript">
+
+
+    var t = self.setInterval("time()",10);//开始执行
+
+    function time()
+
+    {
+
+
+        dt = new Date();
+
+        var y=dt.getYear()+1900;
+
+        var mm=dt.getMonth()+1;
+
+        var d=dt.getDate();
+
+        var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+
+        var day=dt.getDay();
+
+        var h=dt.getHours();
+
+        var m=dt.getMinutes();
+
+        var s=dt.getSeconds();
+     
+        var ms=parseInt(dt.getMilliseconds() / 10);
+
+        if(mm<10){mm="0"+mm;}
+        if(d<10){d="0"+d;}
+        if(h<10){h="0"+h;}
+
+        if(m<10){m="0"+m;}
+
+        if(s<10){s="0"+s;}
+
+        document.getElementById("timeShow").innerHTML =  mm+"-"+d+"";
+        document.getElementById("timeBehind").innerHTML =  h+":"+m+":"+s+"."+ms;
+
+       // t = setTimeout(time,1000); //设定定时器，循环执行           
+
+    }
+
+  </script>
+
+ 
+</body>
+</html>
+
