@@ -1,0 +1,111 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>武汉大学通行凭证</title>
+
+<body 
+>
+<img id="bg" src="./bg2.png">
+
+ <style>
+
+    .time1{position: absolute; top: 390px; left: 250px; width:50%; height:50px; background:rgba(255,255,255, 0); line-height:100px; text-align:left; font-family: Microsoft YaHei; font-size: 60px;color: rgb(0,0,0)}
+    .time2{position: absolute; top: 390px; left: 592px; width:50%; height:50px; background:rgba(255,255,255, 0); line-height:100px; text-align:left; font-family: Microsoft YaHei; font-size: 60px;color: rgb(0,0,0)}
+    .time3{position: absolute; top: 390px; left: 765px; width:50%; height:50px; background:rgba(255,255,255, 0); line-height:100px; text-align:left; font-family: Microsoft YaHei; font-size: 60px;color: rgb(60,145,244)}
+    
+  </style>
+
+  <div id="Pass" style="position: absolute; top:135px; left:120px; width:1000px; height:50px; font-size: 51px; font-family:微软雅黑; color: rgb(255,255,255)">通行凭证</div>
+
+  <div id="timeShow" class="time1"></div>
+  <div id="timeBehind" class="time2"></div>
+  <div id="timeMSecond" class="time3"></div>
+  <div id="canPass" style="position: absolute; top:500px; left:268px; width:800px; height:50px; font-size: 140px;font-family:Yahei; color: rgb(31,172,146)" >允许通行</div>
+  <div id="IDNumber" style="position: absolute; top:1175px; left:160px; width:1000px; height:50px; font-size: 41px; font-family:微软雅黑; color: rgb(0,0,0)"></div>
+  <div id="siteText" style="position: absolute; top:1610px; left:160px; width:800px; height:50px; font-size: 41px;font-family:Yahei; color: rgb(0,0,0)" ></div>
+  <div id="nameText" style="position: absolute; top:900px; left:672px; width:800px; height:50px; font-size: 62px; font-family:Yahei; color: rgb(0,0,0)"></div>
+  <div id="schoolText" style="position: absolute; top:1350px; left:160px; width:1000px; height:50px; font-size: 41px; font-family:Yahei; color: rgb(0,0,0)"></div>
+  <div id="ValidityPeriod" style="position: absolute; top:1525px; left:160px; width:1000px; height:50px; font-size: 41px; font-family:Yahei; color: rgb(0,0,0)">失效时间 ：</div>
+
+  <div id="identifyText" style="position: absolute; top:1260px; left:160px; width:800px; height:50px; font-size: 41px; font-family:Yahei; color: rgb(0,0,0)">人员类别 ：研究生</div>
+  <div id="IDCardText" style="position: absolute; top:1440px; left:160px; width:1000px; height:50px; font-size: 41px; font-family:微软雅黑; color: rgb(0,0,0)">证件类型 ：身份证</div>
+
+  <div id="healthCode" style="position: absolute; top:1755px; left:180px; width:1000px; height:50px; font-size: 43px; font-family:微软雅黑; color: rgb(0,0,0)">湖北健康码</div>
+  <div id="travelCard" style="position: absolute; top:1755px; left:600px; width:1000px; height:50px; font-size: 43px; font-family:微软雅黑; color: rgb(0,0,0)">查看行程卡</div>
+  <div id="returnText" style="position: absolute; top:1940px; left:465px; width:1000px; height:50px; font-size: 41px; font-family:微软雅黑; color: rgb(255,255,255)">返回首页</div>
+  <div id="tipText" style="position: absolute; top:2070px; left:155px; width:800px; height:50px; font-size: 27px; font-family:微软雅黑; color: rgb(126,126,126)">温馨提示：根据校园疫情防控管理需要，所有经许可出入校园和校内公共场所的人员，请使用微信扫码并出示同行凭证。感谢您的理解和配合！</div>
+
+   <div id="bottomText" style="position: absolute; top:2265px; left:153px; width:800px; height:50px; font-size: 30px; font-family:微软雅黑; color: rgb(255,255,255);letter-spacing:3px">健康码状态信息由湖北省新冠肺炎疫情防控指挥部提供</div>
+
+
+<script src="jquery-3.3.1.min.js"></script>
+<script src="jquery.params.js"></script>
+<script language="javascript">
+    var site = $.query.get("site");
+    var name = $.query.get("name");
+    var school = $.query.get("school");
+    var id = $.query.get("idStr");
+
+    document.getElementById("siteText").innerHTML = "通行地点 ："+site;
+    document.getElementById("nameText").innerHTML = name;
+    document.getElementById("schoolText").innerHTML = "单位名称 ："+school;
+    document.getElementById("IDNumber").innerHTML = "学 工 号 : "+id;
+</script>
+
+
+ <script language="javascript">
+
+
+    var t = self.setInterval("time()",10);//开始执行
+
+    function time()
+
+    {
+
+
+        dt = new Date();
+
+        var y=dt.getYear()+1900;
+
+        var mm=dt.getMonth()+1;
+
+        var d=dt.getDate();
+
+        var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+
+        var day=dt.getDay();
+
+        var h=dt.getHours();
+
+        var m=dt.getMinutes();
+
+        var s=dt.getSeconds();
+     
+        var ms=parseInt(dt.getMilliseconds() / 10);
+
+        if(mm<10){mm="0"+mm;}
+        if(d<10){d="0"+d;}
+        if(h<10){h="0"+h;}
+
+        if(m<10){m="0"+m;}
+
+        if(s<10){s="0"+s;}
+
+        document.getElementById("timeShow").innerHTML =  y + "-" + mm + "-" + d;
+        document.getElementById("timeBehind").innerHTML =  h + ":" + m + ":";
+        document.getElementById("timeMSecond").innerHTML =  s;
+        document.getElementById("ValidityPeriod").innerHTML =  "失效时间 ：" + y + "-" + mm + "-" + d;
+
+
+       // t = setTimeout(time,1000); //设定定时器，循环执行           
+
+    }
+
+  </script>
+
+ 
+</body>
+</html>
+

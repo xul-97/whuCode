@@ -8,11 +8,14 @@
 <body 
 >
 
-<div style="position: absolute; top: 600px; left: 100px; width:600; height:50px; font-size: 50px;">
+<div style="position: absolute; top: 400px; left: 100px; width:600; height:50px; font-size: 50px;">
 地点：<input type="text" id="site" value="信息学部南二门" style="width:600px; height:100px; font-size: 50px;border-width: 3px;"/>
 </div>
-<div style="position: absolute; top: 800px; left: 100px; width:600; height:50px; font-size: 50px">
+<div style="position: absolute; top: 600px; left: 100px; width:600; height:50px; font-size: 50px">
 姓名：<input type="text" id="name" value="徐良" style="width:600px; height:100px; font-size: 50px;border-width: 3px;"/>
+</div>
+<div style="position: absolute; top: 800px; left: 100px; width:600; height:50px; font-size: 50px">
+学号：<input type="text" id="idNumber" value="2020202130065" style="width:600px; height:100px; font-size: 50px;border-width: 3px;"/>
 </div>
 <div style="position: absolute; top: 1000px; left: 100px; width:600; height:50px; font-size: 50px">
 院系：<input type="text" id="school" value="电气与自动化学院" style="width:600px; height:100px; font-size: 50px;border-width: 3px;"/>
@@ -31,8 +34,9 @@
       var nameStr=$("#name").val();
       var siteStr=$("#site").val();
       var schoolStr=$("#school").val();
+      var idStr=$("#idNumber").val();
       // var str = siteStr+","+nameStr+","+schoolStr;
-      window.location.href= "whuCode.html?site="+ siteStr + "&name=" + nameStr + "&school=" + schoolStr;
+      window.location.href= "whuCode_2.html?site="+ siteStr + "&name=" + nameStr + "&school=" + schoolStr + "&idStr=" + idStr;
     })
 </script>
 
